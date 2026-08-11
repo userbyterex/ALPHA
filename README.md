@@ -19,7 +19,7 @@ placeholders— vive en `lib/i18n/dictionary.ts`.
 - Framer Motion para animaciones (fade-in, scroll reveal, count-up)
 - Lucide React para iconos
 - Fuentes: Inter (body) + Playfair Display (títulos)
-- Exportación estática (`output: 'export'`) lista para Vercel
+- Exportación estática (`output: 'export'`) lista para Vercel / GitHub Pages
 
 ## Instalación local
 
@@ -38,6 +38,25 @@ npm run build
 
 Esto genera la carpeta `out/` con el sitio estático, listo para desplegar en
 cualquier hosting estático (Vercel, Netlify, GitHub Pages, etc.).
+
+## Deploy en GitHub Pages
+
+El repositorio incluye un workflow en `.github/workflows/deploy.yml` que:
+
+1. Instala dependencias y ejecuta `npm run build`
+2. Publica la carpeta `out/` en GitHub Pages
+
+**Configuración necesaria (una sola vez):**
+
+1. Ve a **Settings → Pages** del repositorio
+2. En **Source**, elige **GitHub Actions**
+3. Haz push a `main` (o dispara el workflow manualmente)
+
+La URL pública será: `https://userbyterex.github.io/ALPHA/`
+
+> Si el repo está en un path (`/ALPHA/`), Next.js con `output: 'export'` sirve
+> bien desde la raíz del artifact. Si ves assets rotos, añade en `next.config.js`:
+> `basePath: '/ALPHA'` y `assetPrefix: '/ALPHA'`.
 
 ## Deploy en Vercel
 
@@ -67,13 +86,13 @@ app/
   page.tsx              # Landing page con todas las secciones
   layout.tsx            # Root layout con fuentes y metadata
   globals.css           # Tailwind + estilos base
-  sections/              # Hero, Filter, Benefits, Economy, Standard, CTA
-  components/            # Navbar, Footer, SectionWrapper, AnimatedText, CountUpNumber, AlphaMark
+  sections/             # Hero, Filter, Benefits, Economy, Standard, CTA
+  components/           # Navbar, Footer, SectionWrapper, AnimatedText, CountUpNumber, AlphaMark
 lib/
   utils.ts              # Helper cn() para clases condicionales
   i18n/
-    dictionary.ts        # Traducciones ES/EN/FR
-    LanguageContext.tsx  # Contexto de idioma (detección + persistencia)
+    dictionary.ts       # Traducciones ES/EN/FR
+    LanguageContext.tsx # Contexto de idioma (detección + persistencia)
 ```
 
 ## Notas de diseño
@@ -82,3 +101,4 @@ lib/
 - Tipografía siempre `font-light`, sin negritas salvo en botones CTA.
 - Animaciones sutiles: fade + slide-up, sin efectos excesivos.
 - Accesibilidad: `focus-visible` definido y `prefers-reduced-motion` respetado.
+- Anchors de sección en inglés neutro (`#filter`, `#benefits`, `#economy`, `#standard`, `#access`) para que funcionen en cualquier idioma.
