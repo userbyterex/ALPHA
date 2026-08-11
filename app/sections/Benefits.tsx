@@ -44,7 +44,7 @@ export default function Benefits() {
   const { t } = useLanguage()
 
   return (
-    <SectionWrapper id="beneficios" bg="alpha-950">
+    <SectionWrapper id="benefits" bg="alpha-950">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div>
           <AnimatedText as="h2" className="font-serif font-light text-3xl md:text-4xl text-alpha-100">

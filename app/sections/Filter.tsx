@@ -63,7 +63,7 @@ export default function Filter() {
   const { t } = useLanguage()
 
   return (
-    <SectionWrapper id="filtro" bg="alpha-900">
+    <SectionWrapper id="filter" bg="alpha-900">
       <AnimatedText as="div" className="text-center mb-16">
         <h2 className="font-serif font-light text-3xl md:text-4xl text-alpha-100">
           {t.filter.title}

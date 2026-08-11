@@ -60,7 +60,7 @@ export default function Hero() {
 
         <motion.div variants={item} className="mt-12 flex flex-col items-center gap-4">
           <a
-            href="#acceso"
+            href="#access"
             className="border border-alpha-600 text-alpha-300 hover:bg-alpha-100 hover:text-alpha-900 px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300 hover:scale-[1.02] inline-block"
           >
             {t.hero.cta}
@@ -72,7 +72,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.a
-        href="#filtro"
+        href="#filter"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}

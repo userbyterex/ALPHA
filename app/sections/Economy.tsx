@@ -16,7 +16,7 @@ export default function Economy() {
   const { t } = useLanguage()
 
   return (
-    <SectionWrapper id="economia" bg="alpha-900">
+    <SectionWrapper id="economy" bg="alpha-900">
       <AnimatedText as="h2" className="font-serif font-light text-3xl md:text-4xl text-alpha-100 text-center">
         {t.economy.title}
       </AnimatedText>

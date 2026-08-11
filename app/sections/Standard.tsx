@@ -8,7 +8,7 @@ export default function Standard() {
   const { t } = useLanguage()
 
   return (
-    <SectionWrapper id="estandar" bg="alpha-950" className="max-w-3xl text-center">
+    <SectionWrapper id="standard" bg="alpha-950" className="max-w-3xl text-center">
       <AnimatedText as="div">
         <blockquote className="font-serif font-light text-2xl md:text-3xl text-alpha-200 leading-snug text-balance">
           {t.standard.quote}

@@ -8,14 +8,16 @@ import { useLanguage } from '@/lib/i18n/LanguageContext'
 export default function CTA() {
   const { t } = useLanguage()
   const [code, setCode] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
-  // Input decorativo: no hay backend real, pero se comporta como un formulario funcional
+  // Input decorativo: no hay backend real; feedback local minimo
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitted(true)
   }
 
   return (
-    <SectionWrapper id="acceso" bg="alpha-900" className="max-w-lg text-center">
+    <SectionWrapper id="access" bg="alpha-900" className="max-w-lg text-center">
       <AnimatedText as="h2" className="font-serif font-light text-3xl md:text-4xl text-alpha-100">
         {t.cta.title}
       </AnimatedText>
@@ -29,9 +31,13 @@ export default function CTA() {
           <input
             type="text"
             value={code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(e) => {
+              setCode(e.target.value)
+              setSubmitted(false)
+            }}
             placeholder={t.cta.placeholder}
             className="w-full max-w-xs bg-transparent border border-alpha-700 text-alpha-200 placeholder-alpha-600 text-center tracking-wider text-sm py-3 px-4 focus:border-alpha-400 focus:outline-none transition-colors duration-300"
+            autoComplete="off"
           />
           <button
             type="submit"
@@ -40,11 +46,19 @@ export default function CTA() {
             {t.cta.button}
           </button>
         </form>
+
+        {submitted && (
+          <p className="text-xs tracking-widest uppercase text-alpha-500 mt-2" role="status">
+            {t.cta.footnote}
+          </p>
+        )}
       </AnimatedText>
 
-      <AnimatedText as="p" delay={0.3} className="mt-8 text-xs tracking-widest uppercase text-alpha-600">
-        {t.cta.footnote}
-      </AnimatedText>
+      {!submitted && (
+        <AnimatedText as="p" delay={0.3} className="mt-8 text-xs tracking-widest uppercase text-alpha-600">
+          {t.cta.footnote}
+        </AnimatedText>
+      )}
     </SectionWrapper>
   )
 }
