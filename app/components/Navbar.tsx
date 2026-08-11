@@ -19,10 +19,10 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { href: '#filtro', label: t.nav.filter },
-    { href: '#beneficios', label: t.nav.benefits },
-    { href: '#economia', label: t.nav.economy },
-    { href: '#estandar', label: t.nav.standard },
+    { href: '#filter', label: t.nav.filter },
+    { href: '#benefits', label: t.nav.benefits },
+    { href: '#economy', label: t.nav.economy },
+    { href: '#standard', label: t.nav.standard },
   ]
 
   return (
@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <LanguageSwitcher />
           <a
-            href="#acceso"
+            href="#access"
             className="inline-flex border border-alpha-600 text-alpha-300 hover:bg-alpha-100 hover:text-alpha-900 px-6 py-2.5 text-xs tracking-widest uppercase transition-all duration-300"
           >
             {t.nav.access}
@@ -103,7 +103,7 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  href="#acceso"
+                  href="#access"
                   onClick={() => setMobileOpen(false)}
                   className="inline-flex border border-alpha-600 text-alpha-300 px-6 py-2.5 text-xs tracking-widest uppercase"
                 >
